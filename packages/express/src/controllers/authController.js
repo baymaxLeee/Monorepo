@@ -10,6 +10,8 @@ const register = async (req, res) => {
     try {
         // 检查用户是否已存在
         const userExists = await User.findOne({ username });
+        const allUsers = await User.find({});
+        console.log('All users:', allUsers);
         if (userExists) {
             return res.status(400).json({ message: "User already exists" });
         }
