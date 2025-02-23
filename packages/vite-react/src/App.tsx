@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import common from 'common/dist';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    console.log('common', common);
+    common.http.post('http://locahost:5000/express/auth/login', { username: 'admin', password: 'admin123' }).then(console.log)
+  }, []);
 
   return (
     <>

@@ -7,15 +7,23 @@
   "scripts": {
     "start:vite-react": "pnpm --filter vite-react start",
     "start:webpack-react": "pnpm --filter webpack-react start",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lerna": "^8.2.0"
+    "@types/node": "^22.13.5",
+    "lerna": "^8.2.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.2"
   },
   "dependencies": {
+    "antd": "^5.24.1",
     "axios": "^1.7.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
