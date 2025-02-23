@@ -7,7 +7,7 @@
   "scripts": {
     "start:vite-react": "pnpm --filter vite-react start",
     "start:webpack-react": "pnpm --filter webpack-react start",
-    "build": "tsc",
+    "build": "lerna run build --stream",
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

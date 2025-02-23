@@ -1,14 +1,24 @@
 {
   "compilerOptions": {
     "target": "ES2020", // 编译目标版本
-    "module": "commonjs", // 模块系统
-    "outDir": "./dist", // 输出目录
-    "rootDir": "./src", // 源代码目录
+    "module": "CommonJS", // 模块系统
     "strict": true, // 启用严格类型检查
     "esModuleInterop": true, // 支持 CommonJS 和 ES 模块的互操作
     "skipLibCheck": true, // 跳过库文件的类型检查
-    "forceConsistentCasingInFileNames": true // 强制文件名大小写一致
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "composite": true, // 启用项目引用
+    "declaration": true, // 生成声明文件
+    "declarationMap": true, // 生成声明文件的 sourcemap
+    "incremental": true, // 启用增量编译
+    "baseUrl": ".", // 基础路径
+    "paths": {
+      "@monorepo/common": ["packages/common/src"], // 路径别名
+      "@monorepo/vite-react": ["packages/vite-react/src"]
+    }
   },
-  "include": ["src/**/*"], // 包含的文件
-  "exclude": ["node_modules"] // 排除的文件
+  "include": ["packages/**/src"], // 包含的文件
+  "references": [
+    { "path": "packages/common" }, // 引用子包
+    { "path": "packages/vite-react" }
+  ]
 }
