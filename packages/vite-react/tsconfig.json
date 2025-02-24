@@ -1,17 +1,8 @@
 {
-  "extends": "../../tsconfig.json", // 继承根目录的配置
-  "files": [],
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist", // 输出目录
-    "rootDir": "./src", // 源代码目录
-    "baseUrl": ".", // 基础路径
-    "paths": {
-      "@monorepo/ui": ["./src"] // 路径别名
-    }
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
-  "include": ["src"], // 包含的文件
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["src"]
 }

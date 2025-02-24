@@ -1,6 +1,6 @@
 import type { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
-import common  from './webpack.common';
+import common from './webpack.common';
 
 const prodConfig: Configuration = {
     mode: 'production',
@@ -31,6 +31,4 @@ const prodConfig: Configuration = {
     },
 }
 
-// export default merge(common, prodConfig);
-
-export default common;
+export default merge(common, prodConfig);
