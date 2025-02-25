@@ -7,12 +7,16 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
+    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["packages/**/src"]
 }

@@ -1,6 +1,11 @@
 import { createRoot } from 'react-dom/client'
-import RootApp from "./App";
+import App from "./App";
 import './main.less';
+
+function RootApp () {
+
+    return <h1>Root app</h1>
+}
 
 const root = createRoot(document.getElementById('root')!);
 

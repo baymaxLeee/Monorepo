@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
-// const common = require('common/dist');
-// import common from "shared/dist";
+import React from 'react';
 
-const RootApp = () => {
+const App: React.FC = () => {
+  return <div style={{ border: '1px solid #ccc', padding: '20px', margin: '20px' }}>
+    <h2>子应用 (React 19 + Webpack 5)</h2>
+  </div>;
+};
 
-    useEffect(() => {
-        // common.http.post('/login', { username: 'admin', password: 'admin123' }, { showLoading: true }).then((res) => {
-        //     console.log(res);
-        // })
-        import('shared/utils').then(({ greet }) => {
-            greet('World');
-        });
-    }, []);
-    return <h1>Hello Home App</h1>
-}
-
-export default RootApp;
+export default App;

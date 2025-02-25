@@ -4,15 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "qiankun": "^2.10.16"
+    "antd": "5.24.1",
+    "axios": "1.7.9",
+    "qiankun": "^2.8.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-router": "7.2.0",
+    "react-router-dom": "7.2.0"
   },
   "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "html-webpack-plugin": "^5.6.3",
     "ts-loader": "^9.5.2",
     "typescript": "~5.7.2",

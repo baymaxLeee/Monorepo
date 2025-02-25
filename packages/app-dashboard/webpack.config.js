@@ -1,12 +1,12 @@
-import { Configuration, container } from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
+const { container } = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
-const config: Configuration = {
-  entry: './src/index.ts',
+module.exports = {
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name]-[hash:8]bundle.js',
     clean: true, // 启用输出清理
   },
   resolve: {
@@ -37,7 +37,7 @@ const config: Configuration = {
       name: 'appHome',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App',
+        './App': './src/App.tsx',
       },
       shared: {
         react: { singleton: true },
@@ -46,5 +46,3 @@ const config: Configuration = {
     }),
   ],
 };
-
-export default config;
