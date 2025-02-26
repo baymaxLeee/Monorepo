@@ -5,14 +5,16 @@ const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
+    runtimeChunk: false, // 关闭运行时 chunk 分离
+    splitChunks: false,  // 关闭代码分割（确保入口文件完整）
   },
   devServer: {
-    compress: true,
-    port: 3001,
+    port: 3002,
     hot: true,
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*', // 允许跨域
+    },
   },
 };
 

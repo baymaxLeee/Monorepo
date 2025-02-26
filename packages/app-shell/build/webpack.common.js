@@ -3,21 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/index.tsx'),
+  entry: path.resolve(__dirname, '../src/main.jsx'),
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name]-[hash:8]-chunk.js',
+    filename: '[name]-[hash:8]-bundle.js',
     publicPath: '/', // 公共路径
     clean: true, // 启用输出清理
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
+        test: /\.jsx?$/,
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
       {
@@ -35,8 +35,17 @@ module.exports = {
       template: path.resolve(__dirname, '../public/index.html'),
     }),
     new container.ModuleFederationPlugin({
-      name: 'appShell', // 主应用名称
+      name: 'host', // 主应用名称（必须全局唯一）
       filename: 'remoteEntry.js', // 远程入口文件
+      exposes: {
+        './React': 'react',
+        './ReactDOM': 'react-dom',
+        './Client': 'react-dom/client',
+        './ReactRouter': 'react-router',
+        './ReactRouterDOM': 'react-router-dom',
+        './Antd': 'antd',
+        './Axios': 'axios',
+      },
       shared: {
         'react': { singleton: true, eager: true, requiredVersion: '19.0.0' },
         'react-dom': { singleton: true, eager: true, requiredVersion: '19.0.0' },

@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 const prodConfig = {
@@ -15,19 +16,22 @@ const prodConfig = {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/, // 匹配 node_modules 中的模块
-          filename: 'chunk-vendors.js',
+          filename: '[name]-[hash:8]-chunk-vendors.js',
           priority: -10, // 优先级
           reuseExistingChunk: true, // 重用已有的 chunk
         },
         common: {
           minChunks: 2, // 最小引用次数
           priority: -20, // 优先级
-          filename: 'chunk-common.js',
+          filename: '[name]-[hash:8]-chunk-common.js',
           reuseExistingChunk: true, // 重用已有的 chunk
         },
       },
     },
   },
+  plugins: [
+    new BundleAnalyzerPlugin(),
+  ],
 };
 
 module.exports = merge(common, prodConfig);

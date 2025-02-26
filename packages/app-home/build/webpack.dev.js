@@ -5,9 +5,8 @@ const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
+    runtimeChunk: false, // 关闭运行时 chunk 分离
+    splitChunks: false,  // 关闭代码分割（确保入口文件完整）
   },
   devServer: {
     port: 3001,
