@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]-[hash:8]-bundle.js',
+    publicPath: '/', // 公共路径
     clean: true, // 启用输出清理
   },
   resolve: {
@@ -36,10 +37,6 @@ module.exports = {
     new container.ModuleFederationPlugin({
       name: 'host', // 主应用名称（必须全局唯一）
       filename: 'remoteEntry.js', // 远程入口文件
-      remotes: {
-        app_home: 'app_home@http://localhost:3001/remoteEntry.js', // 从主应用加载共享库
-        app_dashboard: 'app_dashboard@http://localhost:3002/remoteEntry.js', // 从主应用加载共享库
-      },
       exposes: {
         './React': 'react',
         './ReactDOM': 'react-dom',

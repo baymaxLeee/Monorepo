@@ -41,9 +41,6 @@ module.exports = {
       remotes: {
         host: 'host@http://localhost:3000/remoteEntry.js', // 从主应用加载共享库
       },
-      exposes: {
-        './App': path.resolve(__dirname, '../src/App.jsx'),
-      },
       shared: {
         'react': { singleton: true, import: 'host/React', requiredVersion: '19.0.0' },
         'react-dom': { singleton: true, import: 'host/ReactDOM', requiredVersion: '19.0.0' },
