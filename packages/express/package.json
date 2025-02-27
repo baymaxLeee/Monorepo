@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "server": "mongod --dbpath=C:\\data\\db",
-    "app": "node src/app.js",
+    "start:DB": "mongod --dbpath=C:\\data\\db",
+    "start:Server": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
