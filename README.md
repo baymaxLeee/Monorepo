@@ -8,11 +8,11 @@
 ### 项目管理
 使用 Monorepo(lerna) 工具 在单体仓库管理前后端多个项目，简化协作，提高一致性
 
-### 前端 
+### 前端
 `qiankun`、`React`、`Vue`、`Webpack`、`Vite`
 
 ### 后端
-`Nodejs`、`Express`
+`Nodejs`、`Express`、`MongoDB`
 
 ## 开始
 在根目录一键安装所有主子应用的依赖

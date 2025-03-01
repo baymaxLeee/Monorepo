@@ -5,22 +5,6 @@ import './index.less';
 
 const { Header, Content, Sider } = Layout;
 
-const headerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  height: 64,
-  paddingInline: 48,
-  lineHeight: '64px',
-  backgroundColor: '#4096ff',
-};
-
-const siderStyle = {
-  textAlign: 'center',
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#1677ff',
-};
-
 const App = () => {
 
   // 注册子应用
@@ -56,11 +40,11 @@ const App = () => {
 
   return (
     <Layout className='layout-wrapper'>
-      <Header className='layout-header' style={headerStyle}>
+      <Header className='layout-header'>
         <Layout>
-          <Sider style={siderStyle}>wellocom to baymax platform</Sider>
+          <Sider>Wellocom to Baymax platform</Sider>
           <Content>the sytems</Content>
-          <Sider style={siderStyle}>user profile</Sider>
+          <Sider>User profile</Sider>
         </Layout>
       </Header>
       <Content id='subapp-container'></Content>

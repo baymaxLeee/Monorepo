@@ -5,13 +5,19 @@ const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   optimization: {
-    runtimeChunk: false, // 关闭运行时 chunk 分离
+    runtimeChunk: 'single', // 关闭运行时 chunk 分离
+    moduleIds: 'deterministic', // 保持模块ID稳定
     splitChunks: false,  // 关闭代码分割（确保入口文件完整）
+  },
+  infrastructureLogging: {
+    level: 'verbose' // 显示详细日志
   },
   devServer: {
     port: 3000,
     hot: true, // 启用热更新
-    historyApiFallback: true,
+    devMiddleware: {
+      writeToDisk: true // 确保热更新文件写入物理磁盘
+    },
     headers: {
       'Access-Control-Allow-Origin': '*', // 允许跨域
     },
