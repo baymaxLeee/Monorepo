@@ -7,7 +7,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]-[hash:8]-bundle.js',
-    publicPath: 'http://localhost:3001/', // 子应用独立运行的公共路径
     library: { name: 'app_home', type: 'umd'  }, // 暴露为 UMD 格式
     clean: true, // 启用输出清理
   },

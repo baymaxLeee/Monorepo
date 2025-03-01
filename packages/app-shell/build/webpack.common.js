@@ -7,8 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]-[hash:8]-bundle.js',
-    publicPath: 'http://localhost:3000/',
-    uniqueName: 'host', // 防止命名冲突
+    library: { name: 'host', type: 'umd'  }, // 暴露为 UMD 格式
     clean: true, // 启用输出清理
   },
   resolve: {
@@ -42,13 +41,13 @@ module.exports = {
       name: 'host', // 主应用名称（必须全局唯一）
       filename: 'remoteEntry.js', // 远程入口文件
       exposes: {
-        // './React': 'react',
-        // './ReactDOM': 'react-dom',
-        // './Client': 'react-dom/client',
-        // './ReactRouter': 'react-router',
-        // './ReactRouterDOM': 'react-router-dom',
-        // './Antd': 'antd',
-        // './Axios': 'axios',
+        './React': 'react',
+        './ReactDOM': 'react-dom',
+        './Client': 'react-dom/client',
+        './ReactRouter': 'react-router',
+        './ReactRouterDOM': 'react-router-dom',
+        './Antd': 'antd',
+        './Axios': 'axios',
         './utils': path.resolve(__dirname, '../src/utils/index.js'),
       },
       shared: {

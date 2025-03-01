@@ -4,8 +4,13 @@ const common = require('./webpack.common');
 const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
+  output: {
+    publicPath: 'http://localhost:3000/',
+    uniqueName: 'host', // 防止命名冲突
+    chunkLoadingGlobal: 'webpackChunk_host' // 防止全局污染
+  },
   optimization: {
-    runtimeChunk: 'single', // 关闭运行时 chunk 分离
+    runtimeChunk: false, // 关闭运行时 chunk 分离
     moduleIds: 'deterministic', // 保持模块ID稳定
     splitChunks: false,  // 关闭代码分割（确保入口文件完整）
   },
@@ -15,6 +20,7 @@ const devConfig = {
   devServer: {
     port: 3000,
     hot: true, // 启用热更新
+    historyApiFallback: true,
     devMiddleware: {
       writeToDisk: true // 确保热更新文件写入物理磁盘
     },
